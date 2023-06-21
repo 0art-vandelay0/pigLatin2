@@ -13,7 +13,7 @@ function handleForm(event) {
     p.innerText = sentence;
     document.querySelector("#output").append(p);
 
-    const reversedWords = reversePigLatin(sentence);
+    const reversedWords = reversePigLatin(text);
     const p2 = document.createElement("p");
     p2.innerText = reversedWords;
     document.querySelector("#output").append(p2);
