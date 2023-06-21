@@ -1,4 +1,4 @@
-export default function pigLatin(text) {
+export function pigLatin(text) {
     const textArray = text.split(" ");
     // textArray = ["hello", "world", "this", "is", "a", "test"]
     const vowels = ["a", "e", "i", "o", "u"];
@@ -22,5 +22,27 @@ export default function pigLatin(text) {
             }
         }
     });
-    return wordsToPL;
+    // return wordsToPL;
+    return wordsToPL.join(" ");
+}
+
+export function reversePigLatin(text) {
+    const wordsArray = text.split(" ");
+    const reversedWords = [];
+
+    wordsArray.forEach(function(word) {
+        if (word.endsWith("way")) {
+            reversedWords.push(word.slice(0, -3));
+        } else if (word.endsWith("ay")) {
+            const modifiedWord = word.slice(0, -2);
+            reversedWords.push(modifiedWord);
+        } else {
+            const char1 = word[word.length - 3];
+            const char2 = word[word.length - 4];
+            const modifiedWord = char2 + char1 + word.slice(0, -4);
+            reversedWords.push(modifiedWord);
+        }
+    });
+
+    return reversedWords.join(" ");
 }
