@@ -1,8 +1,17 @@
-import pigLatin from "../src/pigLatin";
+import {pigLatin, reversePigLatin} from "../src/pigLatin";
 
 describe("pigLatin", () => {
 
-    test('should return an array of words', () => {
-        expect(pigLatin("hello world this is a test")).toEqual(["ellohay", "orldway", "isthay", "isway", "away", "esttay"]);
+    test('should turn the original sentence into piglatin', () => {
+        expect(pigLatin("this is a phrase")).toEqual("isthay isway away rasephay");
+    });
+
+});
+
+describe("reversePigLatin", () => {
+
+
+    test('should reverse the pig Latin sentence into the original sentence', () => {
+        expect(reversePigLatin("isthay isway away rasephay")).toEqual("this is a phrase");
     });
 });
