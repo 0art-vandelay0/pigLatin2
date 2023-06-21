@@ -11,7 +11,7 @@ describe("pigLatin", () => {
 describe("reversePigLatin", () => {
 
 
-    test('should reverse the pig Latin sentence into the original sentence', () => {
+    test('should reverse the pig Latin sentence into original english', () => {
         expect(reversePigLatin("isthay isway away rasephay")).toEqual("this is a phrase");
     });
 });
