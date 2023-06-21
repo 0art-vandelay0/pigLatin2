@@ -37,12 +37,16 @@ export function reversePigLatin(text) {
             const modifiedWord = word.slice(0, -2);
             reversedWords.push(modifiedWord);
         } else {
-            const char1 = word[word.length - 3];
-            const char2 = word[word.length - 4];
-            const modifiedWord = char2 + char1 + word.slice(0, -4);
-            reversedWords.push(modifiedWord);
+            const match = word.match(/[aeiou]/i);
+            if (match) {
+                const vowelIndex = match.index;
+                const consonantCluster = word.substring(0, vowelIndex);
+                const remainingWord = word.substring(vowelIndex, word.length - 2);
+                reversedWords.push(consonantCluster + remainingWord);
+            }
         }
     });
 
     return reversedWords.join(" ");
 }
+
